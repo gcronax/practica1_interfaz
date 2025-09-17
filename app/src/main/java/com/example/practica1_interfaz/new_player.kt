@@ -1,5 +1,6 @@
 package com.example.practica1_interfaz
 
+
 import android.R
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
@@ -29,27 +30,27 @@ import com.example.practica1_interfaz.ui.theme.azulesB
 import com.example.practica1_interfaz.ui.theme.negro
 
 @Composable
-fun Greeting(navController: NavHostController, modifier: Modifier = Modifier) {
+fun newP(navController: NavHostController, modifier: Modifier = Modifier) {
 
     val configuration = LocalConfiguration.current
     when (configuration.orientation) {
         Configuration.ORIENTATION_LANDSCAPE -> {
-            hori(navController,modifier)
+            hori2(navController,modifier)
         }
         else -> {
-            verti(navController,modifier)
+            verti2(navController,modifier)
         }
     }
 }
 @Composable
-fun hori(navController: NavHostController,modifier: Modifier){
+fun hori2(navController: NavHostController,modifier: Modifier){
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(-50.dp),
         modifier = modifier.fillMaxSize().wrapContentHeight()
     ){
         Text(
-            text = "Play Juegos",
+            text = "Play2 Juegos",
             modifier = modifier,
             color = negro,
             fontSize = 50.sp,
@@ -66,7 +67,7 @@ fun hori(navController: NavHostController,modifier: Modifier){
             }
             Spacer(modifier = modifier.size(10.dp))
 
-            Button(onClick = { navController.navigate("NewPlayer")}, modifier = modifier.width(200.dp),
+            Button(onClick = { navController.navigate("Portada")}, modifier = modifier.width(200.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = azulesB)
             ) {
                 Text("New Player")
@@ -92,14 +93,14 @@ fun hori(navController: NavHostController,modifier: Modifier){
     }
 }
 @Composable
-fun verti(navController: NavHostController,modifier: Modifier){
+fun verti2(navController: NavHostController,modifier: Modifier){
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(-50.dp),
         modifier = modifier.fillMaxSize().wrapContentHeight()
     ){
         Text(
-            text = "Play Juegos",
+            text = "Play2 Juegos",
             modifier = modifier,
             color = negro,
             fontSize = 50.sp,
@@ -114,7 +115,7 @@ fun verti(navController: NavHostController,modifier: Modifier){
         ) {
             Text("Play")
         }
-        Button(onClick = {navController.navigate("NewPlayer") }, modifier = modifier.width(200.dp),
+        Button(onClick = {navController.navigate("Portada") }, modifier = modifier.width(200.dp),
             colors = ButtonDefaults.buttonColors(containerColor = azulesB)
         ) {
             Text("New Player")
@@ -131,5 +132,4 @@ fun verti(navController: NavHostController,modifier: Modifier){
         }
     }
 }
-
 
