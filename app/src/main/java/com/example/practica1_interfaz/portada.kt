@@ -66,7 +66,8 @@ fun hori(navController: NavHostController,modifier: Modifier){
             }
             Spacer(modifier = modifier.size(10.dp))
 
-            Button(onClick = { navController.navigate("NewPlayer")}, modifier = modifier.width(200.dp),
+            Button(onClick = { navController.navigate("NewPlayer")},
+                modifier = modifier.width(200.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = azulesB)
             ) {
                 Text("New Player")

@@ -15,3 +15,4 @@ val verdes = Color(0xFFABDE96)
 val azulesB = Color(0xFF3B9C8F)
 
 val negro = Color(0xFF282B26)
+val naranja = Color(0xFFE3711C)
