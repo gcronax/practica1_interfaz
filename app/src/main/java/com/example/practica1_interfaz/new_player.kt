@@ -28,6 +28,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.example.practica1_interfaz.ui.theme.azulesB
 import com.example.practica1_interfaz.ui.theme.negro
+import com.example.practica1_interfaz.ui.theme.verdes
 
 @Composable
 fun newP(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -68,7 +69,7 @@ fun hori2(navController: NavHostController,modifier: Modifier){
             Spacer(modifier = modifier.size(10.dp))
 
             Button(onClick = { navController.navigate("Portada")}, modifier = modifier.width(200.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = azulesB)
+                colors = ButtonDefaults.buttonColors(containerColor = negro)
             ) {
                 Text("New Player")
             }
@@ -116,7 +117,7 @@ fun verti2(navController: NavHostController,modifier: Modifier){
             Text("Play")
         }
         Button(onClick = {navController.navigate("Portada") }, modifier = modifier.width(200.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = azulesB)
+            colors = ButtonDefaults.buttonColors(containerColor = negro)
         ) {
             Text("New Player")
         }
