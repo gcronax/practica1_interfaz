@@ -38,6 +38,7 @@ import com.example.practica1_interfaz.ui.theme.naranja
 
 @Composable
 fun NewP(navController: NavHostController, modifier: Modifier = Modifier){
+    val nav =navController
     Column (
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
