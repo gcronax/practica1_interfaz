@@ -1,7 +1,6 @@
 package com.example.practica1_interfaz
 
 
-import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,6 +11,8 @@ import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.material.icons.rounded.Email
@@ -29,53 +30,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.practica1_interfaz.ui.theme.azulesB
 import com.example.practica1_interfaz.ui.theme.naranja
-import com.example.practica1_interfaz.ui.theme.negro
+
 
 @Composable
-fun newP(navController: NavHostController, modifier: Modifier = Modifier) {
-
-    val configuration = LocalConfiguration.current
-    when (configuration.orientation) {
-        Configuration.ORIENTATION_LANDSCAPE -> {
-            hori2(navController,modifier)
-        }
-        else -> {
-            verti2(navController,modifier)
-        }
-    }
-}
-@Composable
-fun hori2(navController: NavHostController,modifier: Modifier){
-    Column (
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(-50.dp),
-        modifier = modifier.fillMaxSize().wrapContentHeight()
-    ){
-        Text(
-            text = "Que miras",
-            modifier = modifier,
-            color = negro,
-            fontSize = 50.sp,
-            fontWeight = FontWeight.Bold,
-            fontStyle = FontStyle.Italic
-        )
-    }
-}
-@Composable
-fun verti2(navController: NavHostController,modifier: Modifier){
+fun NewP(navController: NavHostController, modifier: Modifier = Modifier){
     Column (
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.fillMaxSize().wrapContentHeight()
+        modifier = modifier.fillMaxSize().wrapContentHeight().verticalScroll(rememberScrollState()),
     ){
         Row {
             Icon(
@@ -146,7 +112,8 @@ fun verti2(navController: NavHostController,modifier: Modifier){
                     estadoTextField = it
                 },
                 label = { Text(text = "Telefono")
-                })
+                }
+            )
         }
         Spacer(modifier = modifier.size(10.dp))
         Row {
