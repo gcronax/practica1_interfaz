@@ -20,6 +20,7 @@ import androidx.compose.material.icons.rounded.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -33,12 +34,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.practica1_interfaz.ui.theme.azulesB
 import com.example.practica1_interfaz.ui.theme.naranja
 
 
 @Composable
 fun NewP(navController: NavHostController, modifier: Modifier = Modifier){
-    val nav =navController
+
+    var comprobarNombre by remember { mutableStateOf(false) }
+    var comprobarNickname by remember { mutableStateOf(false) }
+    var estadoNombre by remember { mutableStateOf(" ") }
+    var estadoNickname by remember { mutableStateOf(" ") }
+
     Column (
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -51,14 +58,19 @@ fun NewP(navController: NavHostController, modifier: Modifier = Modifier){
                 tint = Color.DarkGray,
                 modifier = Modifier.size(50.dp)
             )
-            var estadoTextField by remember { mutableStateOf(" ") }
-            TextField(
-                value = estadoTextField,
-                onValueChange = {
-                    estadoTextField = it
-                },
-                label = { Text(text = "Nombre")
-                })
+            Column {
+                TextField(
+                    value = estadoNombre,
+                    onValueChange = {
+                        estadoNombre = it
+                    },
+                    label = { Text(text = "Nombre")
+                    })
+                if (comprobarNombre) {
+                    Text("Este campo no puede estar vacío", color = Color.Red, style = MaterialTheme.typography.bodySmall)
+                }
+            }
+
         }
         Spacer(modifier = modifier.size(10.dp))
         Row {
@@ -75,14 +87,18 @@ fun NewP(navController: NavHostController, modifier: Modifier = Modifier){
 //        Spacer(modifier = modifier.size(10.dp))
         Row {
             Spacer(modifier = modifier.size(50.dp))
-            var estadoTextField by remember { mutableStateOf(" ") }
-            TextField(
-                value = estadoTextField,
-                onValueChange = {
-                    estadoTextField = it
-                },
-                label = { Text(text = "Nickname")
-                })
+            Column {
+                TextField(
+                    value = estadoNickname,
+                    onValueChange = {
+                        estadoNickname = it
+                    },
+                    label = { Text(text = "Nickname")
+                    })
+                if (comprobarNickname) {
+                    Text("Este campo no puede estar vacío", color = Color.Red, style = MaterialTheme.typography.bodySmall)
+                }
+            }
         }
         Row {
             Image(
@@ -135,7 +151,17 @@ fun NewP(navController: NavHostController, modifier: Modifier = Modifier){
         }
         Spacer(modifier = modifier.size(10.dp))
 
-
+        Button(onClick = {
+//            navController.navigate("Portada")
+            comprobarNombre=estadoNombre.isBlank()
+            comprobarNickname=estadoNickname.isBlank()
+        },
+            modifier = modifier.width(200.dp),
+            colors = ButtonDefaults
+                .buttonColors(containerColor = azulesB)
+        ) {
+            Text("Crear New Player")
+        }
     }
 }
 
