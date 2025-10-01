@@ -25,10 +25,13 @@ class MainActivity : ComponentActivity() {
                 ) { innerPadding ->
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = "Portada") {
-                        composable("Portada") {Greeting(navController,
+                        composable("Portada") {portada(navController,
                             Modifier.padding(innerPadding))  }
                         composable("NewPlayer") {NewP(navController,
                             Modifier.padding(innerPadding))  }
+                        composable("Preferences") {preferences(navController,
+                            Modifier.padding(innerPadding))  }
+
                     }
                 }
             }

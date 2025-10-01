@@ -26,7 +26,7 @@ import com.example.practica1_interfaz.ui.theme.fuentePortada
 import com.example.practica1_interfaz.ui.theme.negro
 
 @Composable
-fun Greeting(navController: NavHostController, modifier: Modifier = Modifier) {
+fun portada(navController: NavHostController, modifier: Modifier = Modifier) {
 
     val configuration = LocalConfiguration.current
     when (configuration.orientation) {
@@ -73,7 +73,7 @@ fun Hori(navController: NavHostController,modifier: Modifier){
         }
 
         Row {
-            Button(onClick = {  }, modifier = modifier.width(200.dp)
+            Button(onClick = { navController.navigate("Preferences") }, modifier = modifier.width(200.dp)
 //                , colors = ButtonDefaults.buttonColors(containerColor = azulesB)
             ) {
                 Text("Preferences")
@@ -120,7 +120,7 @@ fun Verti(navController: NavHostController,modifier: Modifier){
         ) {
             Text("New Player")
         }
-        Button(onClick = {  }, modifier = modifier.width(200.dp)
+        Button(onClick = { navController.navigate("Preferences") }, modifier = modifier.width(200.dp)
 //            , colors = ButtonDefaults.buttonColors(containerColor = azulesB)
         ) {
             Text("Preferences")
