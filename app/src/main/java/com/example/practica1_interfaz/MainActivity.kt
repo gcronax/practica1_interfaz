@@ -20,8 +20,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Practica1_interfazTheme {
-                Scaffold(modifier = Modifier.fillMaxSize(),
-                    containerColor = verdes
+                Scaffold(modifier = Modifier.fillMaxSize()
+//                    , containerColor = verdes
                 ) { innerPadding ->
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = "Portada") {

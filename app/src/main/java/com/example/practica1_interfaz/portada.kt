@@ -48,7 +48,7 @@ fun Hori(navController: NavHostController,modifier: Modifier){
         Text(
             text = "Play Juegos",
             modifier = modifier,
-            color = negro,
+//            color = negro,
             fontSize = 50.sp,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Italic,
@@ -57,31 +57,31 @@ fun Hori(navController: NavHostController,modifier: Modifier){
         Spacer(modifier = modifier.size(50.dp))
 
         Row {
-            Button(onClick = { }, modifier = modifier.width(200.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = azulesB)
+            Button(onClick = { }, modifier = modifier.width(200.dp)
+//                , colors = ButtonDefaults.buttonColors(containerColor = azulesB)
             ) {
                 Text("Play")
             }
             Spacer(modifier = modifier.size(10.dp))
 
             Button(onClick = { navController.navigate("NewPlayer")},
-                modifier = modifier.width(200.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = azulesB)
+                modifier = modifier.width(200.dp)
+//                , colors = ButtonDefaults.buttonColors(containerColor = azulesB)
             ) {
                 Text("New Player")
             }
         }
 
         Row {
-            Button(onClick = {  }, modifier = modifier.width(200.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = azulesB)
+            Button(onClick = {  }, modifier = modifier.width(200.dp)
+//                , colors = ButtonDefaults.buttonColors(containerColor = azulesB)
             ) {
                 Text("Preferences")
             }
             Spacer(modifier = modifier.size(10.dp))
 
-            Button(onClick = {  }, modifier = modifier.width(200.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = azulesB)
+            Button(onClick = {  }, modifier = modifier.width(200.dp)
+//                , colors = ButtonDefaults.buttonColors(containerColor = azulesB)
             ) {
                 Text("About")
             }
@@ -100,7 +100,7 @@ fun Verti(navController: NavHostController,modifier: Modifier){
         Text(
             text = "Play Juegos",
             modifier = modifier,
-            color = negro,
+//            color = negro,
             fontSize = 50.sp,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Italic,
@@ -109,23 +109,24 @@ fun Verti(navController: NavHostController,modifier: Modifier){
         Spacer(modifier = modifier.size(50.dp))
 
 
-        Button(onClick = { }, modifier = modifier.width(200.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = azulesB)
+        Button(onClick = { }, modifier = modifier.width(200.dp)
+//            , colors = ButtonDefaults.buttonColors(containerColor = azulesB)
         ) {
             Text("Play")
         }
-        Button(onClick = {navController.navigate("NewPlayer") }, modifier = modifier.width(200.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = azulesB)
+        Button(onClick = {navController.navigate("NewPlayer") }
+            , modifier = modifier.width(200.dp)
+//            , colors = ButtonDefaults.buttonColors(containerColor = azulesB)
         ) {
             Text("New Player")
         }
-        Button(onClick = {  }, modifier = modifier.width(200.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = azulesB)
+        Button(onClick = {  }, modifier = modifier.width(200.dp)
+//            , colors = ButtonDefaults.buttonColors(containerColor = azulesB)
         ) {
             Text("Preferences")
         }
-        Button(onClick = {  }, modifier = modifier.width(200.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = azulesB)
+        Button(onClick = {  }, modifier = modifier.width(200.dp)
+//            , colors = ButtonDefaults.buttonColors(containerColor = azulesB)
         ) {
             Text("About")
         }
