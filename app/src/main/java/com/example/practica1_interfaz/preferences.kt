@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -34,6 +35,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import kotlin.math.ceil
 import kotlin.math.floor
+import androidx.compose.ui.graphics.Color
+
 
 @Composable
 fun preferences(navController: NavHostController, modifier: Modifier = Modifier){
@@ -58,12 +61,13 @@ fun preferences(navController: NavHostController, modifier: Modifier = Modifier)
             onValueChange = { selection = it },
             modifier = Modifier.padding(start = 20.dp,end = 20.dp)
         )
-        RatingBar(estadoRating=estadoRating,  onStarselected = {estadoRating = it})
+        RatingBar( onStarselected = {estadoRating = it},10,estadoRating)
+        Text(text = estadoRating.toString())
 
-
+        SmallExample(estadoRating.toString())
+        FAV(estadoRadio,selection.toString(),modifier)
     }
-//    SmallExample(estadoRating)
-    FAV(estadoRadio,selection.toString(),modifier)
+
 
 }
 
@@ -81,39 +85,29 @@ fun botones(estadoRadio: String, onItemselected:(String)->Unit){
                 Text(text=nom,Modifier.padding(top=12.dp))
         }
     }
-    Text(text=estadoRadio)
+//    Text(text=estadoRadio)
 }
 @Composable
 fun RatingBar(
-    estadoRating: Float,
-    modifier: Modifier = Modifier,
-    stars: Int = 10,
-    rating: Double = 0.0,
-    onStarselected: (Float) -> Unit
-    ){
-    val filledStars = floor(rating).toInt()
-    val unfilledStars = (stars - ceil(rating)).toInt()
-    Row{
-        repeat(filledStars) {
-            Icon(
-                imageVector = Icons.Outlined.Star,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.tertiary,
-                modifier = modifier.clickable{onStarselected(estadoRating)}
-            )
-        }
-
-        repeat(unfilledStars) {
-            Icon(
-                imageVector = Icons.Outlined.Star,
-                contentDescription = null
-            )
+    onStarselected: (Float) -> Unit,
+    stars: Int ,
+    rating: Float
+){
+        Row{
+            for (i in 1..stars){
+                Icon(
+                    modifier = Modifier
+                        .size(24.dp)
+                        .weight(1f)
+                        .clickable{onStarselected(i.toFloat())}
+                        .padding(4.dp),
+                    imageVector = Icons.Default.Star,
+                    contentDescription = null,
+                    tint = if (i <= rating) Color.Red else Color.Gray
+                )
+            }
         }
     }
-    Text(text = estadoRating.toString())
-
-
-}
 @Composable
 fun FAV(estado: String,selection: String,modifier: Modifier) {
     var context = LocalContext.current
