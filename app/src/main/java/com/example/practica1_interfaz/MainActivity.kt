@@ -31,6 +31,8 @@ class MainActivity : ComponentActivity() {
                             Modifier.padding(innerPadding))  }
                         composable("Preferences") {preferences(navController,
                             Modifier.padding(innerPadding))  }
+                        composable("Games") {games(navController,
+                            Modifier.padding(innerPadding))  }
 
                     }
                 }
