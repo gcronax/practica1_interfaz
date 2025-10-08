@@ -13,7 +13,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Done
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.outlined.Star
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -33,8 +34,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import kotlin.math.ceil
-import kotlin.math.floor
 import androidx.compose.ui.graphics.Color
 
 
@@ -43,6 +42,8 @@ fun preferences(navController: NavHostController, modifier: Modifier = Modifier)
     var estadoRadio by rememberSaveable { mutableStateOf("") }
     var estadoRating by rememberSaveable { mutableFloatStateOf(0f) }
     var selection by remember { mutableStateOf(5f) }
+    var seleccionChip by remember { mutableStateOf("") }
+
     Column (
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.Start,
@@ -62,15 +63,44 @@ fun preferences(navController: NavHostController, modifier: Modifier = Modifier)
             modifier = Modifier.padding(start = 20.dp,end = 20.dp)
         )
         RatingBar( onStarselected = {estadoRating = it},10,estadoRating)
-        Text(text = estadoRating.toString())
 
-        SmallExample(estadoRating.toString())
+        chips(seleccionChip, onChange = {seleccionChip=it})
+        SmallExample(estadoRating,estadoRadio)
         FAV(estadoRadio,selection.toString(),modifier)
     }
 
 
 }
+@Composable
+fun chips(seleccionChip: String, onChange:(String)->Unit) {
+    var context = LocalContext.current
+    val nombres =listOf<String>("PS4","XBOX","3DS","WII","WIIU")
+    Row {
+        for (i in nombres){
+            FilterChip(
+                onClick = { onChange(i)
+                    Toast.makeText(context, "has seleccionado $i", Toast.LENGTH_LONG).show()
+                },
+                label = {
+                    Text(i)
+                },
+                selected = seleccionChip==i,
+                leadingIcon = if (seleccionChip==i) {
+                    {
+                        Icon(
+                            imageVector = Icons.Filled.Done,
+                            contentDescription = "Done icon",
+                            modifier = Modifier.size(FilterChipDefaults.IconSize)
+                        )
+                    }
+                } else {
+                    null
+                }
+            )
+        }
+    }
 
+}
 @Composable
 fun botones(estadoRadio: String, onItemselected:(String)->Unit){
     val array_juegos = arrayListOf("Angri Birds","Dragon Fly","Hill Climbing Racing",
@@ -126,15 +156,15 @@ fun FAV(estado: String,selection: String,modifier: Modifier) {
 }
 
 @Composable
-fun SmallExample(onClick: String) {
+fun SmallExample(onClick: Float,selection: String) {
     var context = LocalContext.current
     SmallFloatingActionButton(
         onClick = {
-            if (onClick.isEmpty()){
+            if (selection.isEmpty()){
                 Toast.makeText(context, "No has pulsado ninguna opcion", Toast.LENGTH_LONG).show()
 
             }else{
-                Toast.makeText(context, "Has seleccionado $onClick con una puntuacion de ", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Has seleccionado $selection con una puntuacion de $onClick", Toast.LENGTH_LONG).show()
             }
         },
         containerColor = MaterialTheme.colorScheme.secondaryContainer,
