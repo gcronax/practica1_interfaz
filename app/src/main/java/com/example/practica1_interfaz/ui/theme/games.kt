@@ -13,6 +13,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
@@ -27,6 +31,7 @@ import com.example.practica1_interfaz.ui.theme.negro
 
 @Composable
 fun games(navController: NavHostController, modifier: Modifier = Modifier) {
+    var seleccionChip by remember { mutableStateOf("") }
 
 
 }
