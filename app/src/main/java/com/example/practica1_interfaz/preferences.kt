@@ -35,6 +35,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.LineHeightStyle
 
 
 @Composable
@@ -49,25 +50,33 @@ fun preferences(navController: NavHostController, modifier: Modifier = Modifier)
         horizontalAlignment = Alignment.Start,
         modifier = modifier.fillMaxSize().verticalScroll(rememberScrollState()),
     ){
-        Text("Elige una opción:",modifier.align(Alignment.CenterHorizontally))
+        Column {
+            Text("Elige una opción:",modifier.align(Alignment.CenterHorizontally))
 
-        botones( estadoRadio,{estadoRadio = it})
-        val range = 0.0f..10.0f
-        val steps = 9
+            botones( estadoRadio,{estadoRadio = it})
+            val range = 0.0f..10.0f
+            val steps = 9
 
-        Slider(
-            value = selection,
-            valueRange = range,
-            steps = steps,
-            onValueChange = { selection = it },
-            modifier = Modifier.padding(start = 20.dp,end = 20.dp)
-        )
-        RatingBar( onStarselected = {estadoRating = it},10,estadoRating)
+            Slider(
+                value = selection,
+                valueRange = range,
+                steps = steps,
+                onValueChange = { selection = it },
+                modifier = Modifier.padding(start = 20.dp,end = 20.dp)
+            )
+            RatingBar( onStarselected = {estadoRating = it},10,estadoRating)
 
-        chips(seleccionChip, onChange = {seleccionChip=it})
-        SmallExample(estadoRating,estadoRadio)
-        FAV(estadoRadio,selection.toString(),modifier)
+            chips(seleccionChip, onChange = {seleccionChip=it})
+        }
+
+        Column (
+        ){
+            SmallExample(estadoRating,estadoRadio)
+            FAV(estadoRadio,selection.toString(),modifier)
+        }
     }
+
+
 
 
 }
