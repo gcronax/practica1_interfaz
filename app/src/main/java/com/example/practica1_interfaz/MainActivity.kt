@@ -24,7 +24,9 @@ class MainActivity : ComponentActivity() {
 //                    , containerColor = verdes
                 ) { innerPadding ->
                     val navController = rememberNavController()
-                    NavHost(navController = navController, startDestination = "Portada") {
+                    NavHost(navController = navController, startDestination = "Splash") {
+                        composable("Splash") {splash(navController,
+                            Modifier.padding(innerPadding))  }
                         composable("Portada") {portada(navController,
                             Modifier.padding(innerPadding))  }
                         composable("NewPlayer") {NewP(navController,
