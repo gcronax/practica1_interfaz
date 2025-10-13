@@ -158,7 +158,11 @@ fun FAV(estado: String,selection: String,modifier: Modifier) {
             }else{
                 Toast.makeText(context, "Has seleccionado $estado con una puntuacion de $selection", Toast.LENGTH_LONG).show()
             }
-        }
+        },
+//        modifier = Modifier
+//            .align(Alignment.BottomEnd)
+//            .padding(16.dp)
+
     ) {
         Icon(Icons.Filled.Done, "Floating action button.")
     }
