@@ -74,7 +74,9 @@ fun games(navController: NavHostController, modifier: Modifier = Modifier) {
         FloatingActionButton(
             onClick = {
                 var nombres=""
+                for (obj in listCheckInfo){
 
+                }
 
                 if (nombres.isEmpty()){
                     Toast.makeText(context, "No has pulsado ninguna opcion", Toast.LENGTH_LONG).show()
