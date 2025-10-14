@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.delay
@@ -28,11 +29,15 @@ fun splash(navController: NavHostController, modifier: Modifier = Modifier) {
     Box(
         modifier.fillMaxSize()
     ){
-        Text(text = "prueba")
+
         Image(
             painter = painterResource(id = R.drawable.screen),
             contentDescription = "Logotipo de la Aplicación",
             modifier = Modifier.requiredSize(300.dp).align(Alignment.Center)
+        )
+        Text(text = "prueba",
+        textAlign = TextAlign.Center,
+        modifier = modifier.align(Alignment.BottomCenter)
         )
     }
 
