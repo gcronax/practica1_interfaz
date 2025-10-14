@@ -75,7 +75,9 @@ fun games(navController: NavHostController, modifier: Modifier = Modifier) {
             onClick = {
                 var nombres=""
                 for (obj in listCheckInfo){
-
+                    if(obj.selected){
+                        nombres+=" "+obj.title
+                    }
                 }
 
                 if (nombres.isEmpty()){
