@@ -35,7 +35,7 @@ fun splash(navController: NavHostController, modifier: Modifier = Modifier) {
             contentDescription = "Logotipo de la Aplicación",
             modifier = Modifier.requiredSize(300.dp).align(Alignment.Center)
         )
-        Text(text = "prueba",
+        Text(text = "creado por Guillermo",
         textAlign = TextAlign.Center,
         modifier = modifier.align(Alignment.BottomCenter)
         )
