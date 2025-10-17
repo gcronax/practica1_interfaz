@@ -2,11 +2,14 @@ package com.example.practica1_interfaz
 
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -19,8 +22,11 @@ import androidx.compose.material.icons.rounded.Email
 import androidx.compose.material.icons.rounded.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -140,14 +146,7 @@ fun NewP(navController: NavHostController, modifier: Modifier = Modifier){
                 tint = Color.DarkGray,
                 modifier = Modifier.size(50.dp)
             )
-            var estadoTextField by remember { mutableStateOf(" ") }
-            TextField(
-                value = estadoTextField,
-                onValueChange = {
-                    estadoTextField = it
-                },
-                label = { Text(text = "Email")
-                })
+            MyDropDownMenu()
         }
         Spacer(modifier = modifier.size(10.dp))
 
@@ -164,4 +163,40 @@ fun NewP(navController: NavHostController, modifier: Modifier = Modifier){
         }
     }
 }
+@Composable
+fun MyDropDownMenu() {
+    var selectedText by remember { mutableStateOf("") }
+    var expanded by remember { mutableStateOf(false) }
+    var estadoTextField by remember { mutableStateOf(" ") }
+    val series =
+        listOf("Naruto", "The witcher", "Stranger Things")
+    Column(Modifier.padding(20.dp)) {
+            TextField(
+                value = estadoTextField,
+                onValueChange = {
+                    estadoTextField = it
+                },
+                enabled = false,
+                readOnly = true,
+                modifier = Modifier
+                    .clickable { expanded = true },
+                label = { Text(text = "Email")
+                })
+            DropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                series.forEach { serie ->
+                    DropdownMenuItem(onClick =
+                        { expanded = false
+                            estadoTextField = serie
+                        },
+                        text = {Text(text = serie)})
+                    }
+                }
+            }
+        }
+
+
 
