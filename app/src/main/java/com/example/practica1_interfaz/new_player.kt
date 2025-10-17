@@ -169,7 +169,7 @@ fun MyDropDownMenu() {
     var expanded by remember { mutableStateOf(false) }
     var estadoTextField by remember { mutableStateOf(" ") }
     val series =
-        listOf("Naruto", "The witcher", "Stranger Things")
+        listOf("Naruto@gmail.com", "Thewitcher@gmail.com", "StrangerThings@gmail.com")
     Column(Modifier.padding(20.dp)) {
             TextField(
                 value = estadoTextField,
