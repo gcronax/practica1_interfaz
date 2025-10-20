@@ -81,7 +81,7 @@ fun Hori(navController: NavHostController,modifier: Modifier){
             }
             Spacer(modifier = modifier.size(10.dp))
 
-            Button(onClick = {  }, modifier = modifier.width(200.dp)
+            Button(onClick = { navController.navigate("About") }, modifier = modifier.width(200.dp)
 //                , colors = ButtonDefaults.buttonColors(containerColor = azulesB)
             ) {
                 Text("About")
@@ -126,7 +126,7 @@ fun Verti(navController: NavHostController,modifier: Modifier){
         ) {
             Text("Preferences")
         }
-        Button(onClick = {  }, modifier = modifier.width(200.dp)
+        Button(onClick = { navController.navigate("About") }, modifier = modifier.width(200.dp)
 //            , colors = ButtonDefaults.buttonColors(containerColor = azulesB)
         ) {
             Text("About")

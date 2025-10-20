@@ -12,7 +12,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.practica1_interfaz.ui.theme.Practica1_interfazTheme
-import com.example.practica1_interfaz.ui.theme.verdes
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +34,9 @@ class MainActivity : ComponentActivity() {
                             Modifier.padding(innerPadding))  }
                         composable("Games") {games(navController,
                             Modifier.padding(innerPadding))  }
+                        composable("About") {about(navController,
+                            Modifier.padding(innerPadding))  }
+
 
                     }
                 }
