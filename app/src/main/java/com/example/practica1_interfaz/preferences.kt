@@ -80,6 +80,9 @@ fun preferences(navController: NavHostController, modifier: Modifier = Modifier)
 
 
 }
+
+
+
 @Composable
 fun chips(seleccionChip: String, onChange:(String)->Unit) {
     var context = LocalContext.current

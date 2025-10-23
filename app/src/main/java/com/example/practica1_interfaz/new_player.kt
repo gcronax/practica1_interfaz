@@ -26,7 +26,6 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -40,8 +39,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.practica1_interfaz.ui.theme.azulesB
-import com.example.practica1_interfaz.ui.theme.naranja
+
 
 
 @Composable
@@ -112,8 +110,7 @@ fun NewP(navController: NavHostController, modifier: Modifier = Modifier){
                 contentDescription = "Android",
                 modifier = Modifier.requiredSize(150.dp)
             )
-            Button(onClick = { }, modifier = modifier.width(100.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = naranja)
+            Button(onClick = { }, modifier = modifier.width(100.dp)
             ) {
                 Text("Change")
             }
@@ -155,9 +152,8 @@ fun NewP(navController: NavHostController, modifier: Modifier = Modifier){
             comprobarNombre=estadoNombre.isBlank()
             comprobarNickname=estadoNickname.isBlank()
         },
-            modifier = modifier.width(200.dp),
-            colors = ButtonDefaults
-                .buttonColors(containerColor = azulesB)
+            modifier = modifier.width(200.dp)
+
         ) {
             Text("Crear New Player")
         }

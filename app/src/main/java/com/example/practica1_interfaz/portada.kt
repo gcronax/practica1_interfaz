@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,9 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.practica1_interfaz.ui.theme.azulesB
-import com.example.practica1_interfaz.ui.theme.fuentePortada
-import com.example.practica1_interfaz.ui.theme.negro
+import fuentePortada
 
 @Composable
 fun portada(navController: NavHostController, modifier: Modifier = Modifier) {

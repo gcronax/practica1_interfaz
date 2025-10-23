@@ -76,8 +76,8 @@ fun about(navController: NavHostController, modifier: Modifier = Modifier) {
                 R.drawable.image7
             ),
             imgenes(
-                "Pablo Morralla",
-                6969,
+                "Guillermo Campos",
+                1000,
                 R.drawable.image8
             )
         ))
