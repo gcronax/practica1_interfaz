@@ -1,6 +1,8 @@
 package com.example.practica1_interfaz
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -95,8 +98,13 @@ fun about(navController: NavHostController, modifier: Modifier = Modifier) {
 
 @Composable
 fun rows(imagen: imgenes){
+    var context = LocalContext.current
     Row ( horizontalArrangement = Arrangement.spacedBy(10.dp),
-        verticalAlignment = Alignment.CenterVertically)
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.clickable(onClick={
+            Toast.makeText(context, imagen.nombre, Toast.LENGTH_LONG).show()
+        })
+        )
     {
         Image(
             contentScale = ContentScale.Crop,
